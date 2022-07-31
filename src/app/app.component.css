@@ -1,0 +1,30 @@
+p {
+  font-family: Lato;
+}
+
+.div1{
+  border: 2px solid black;
+  border-radius: 2px;
+  background-color: rgb(235, 235, 235);
+}
+
+.btt{
+  border-bottom: 5px solid black;
+  width: 100%;
+  color: white;
+  height: 32px;
+
+}
+
+#btt1{
+  background-color: #00B74A;
+}
+
+#btt2{
+  background-color: #1266F1;
+}
+
+.divcot{
+  background-color: linear-gradient(white, gray);
+  
+}

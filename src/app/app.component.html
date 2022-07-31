@@ -1,0 +1,79 @@
+<div class="container">
+
+  <div class="d-flex justify-content-center py-2 my-1">
+    <h1>Histórico de cotações</h1>
+  </div>
+
+  <div class="div1">
+    <div class="row col-12 d-flex justify-content-around mt-2 mb-1 d-flex align-items-center">
+    <div class="col-md-2">
+      <label for="">Moeda</label>
+                  <select name="tipo" id="" class="form-control" [(ngModel)]='moeda' required>
+                      <option value="USD">Dólar dos Estados Unidos</option>
+                      <option value="EUR">Euro</option>
+                      <option value="AUD">Dólar australiano</option>
+                      <option value="CAD">Dólar canadense</option>
+                  </select>
+    </div>
+    <div class="col-md-2 input-icons">
+      <p class="m-0 mb-1 p-0">Data Inicial</p>
+      <input [(ngModel)]='dataI' name="dataI" type="date" 
+      (input)="formatarData1($event)" required>
+      
+    </div>
+    <div class="col-md-2 input-icons">
+      <p class="m-0 mb-1 p-0">Data Final</p>
+      <input [(ngModel)]='dataF' name="dataF" type="date" min="dataI"
+      (input)="formatarData2($event)" required>
+
+    </div>
+
+    <div class="col-md-2 mt-4">
+      <button class="btt" id="btt1" (click)='CotacaoMoeda()'><i class="fa fa-check mr-1" aria-hidden="true" ></i> <span style="font-size: 15px;">Consultar dados</span></button>
+    </div>
+    <div class="col-md-2 mt-4">
+      <button class="btt" id="btt2"><i class="fa-solid fa-3 fa-arrows-rotate"></i> Atualizar dados</button>
+    </div>
+  </div>
+
+    </div>
+
+    <div class="container div1 mt-3">
+      <div class="col-md-12 mx-1">
+
+
+      <div class="row d-flex justify-content-between align-items-center">
+
+        <div class="col-md-4 divcot row d-flex align-items-center">
+          <p class="mt-2">Cotação de compra </p><i class="fa fa-angle-down ml-auto" aria-hidden="true"></i>
+        <input type="text" class="inputenf"/>
+        </div>
+
+        <div class="col-md-4 divcot row d-flex align-items-center">
+          <p class="mt-2">Cotação de venda </p><i class="fa fa-angle-down ml-auto" aria-hidden="true"></i>
+          <input type="text" class="inputenf"/>
+        </div>
+
+        <div class="col-md-4 divcot row d-flex align-items-center">
+          <p class="mt-2">Data e hora da cotação </p><i class="fa fa-angle-down ml-auto" aria-hidden="true"></i>
+          <input type="text" class="inputenf"/>
+        </div>
+
+      </div>
+      
+        <div class="row d-flex justify-content-around" *ngFor="">
+          <div class="col-md-4">
+            
+          </div>
+          <div class="col-md-4">
+            
+          </div>
+          <div class="col-md-4">
+            
+          </div>
+        </div>
+   
+      </div>
+    </div>
+
+  </div>
