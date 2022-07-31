@@ -17,7 +17,7 @@
     </div>
     <div class="col-md-2 input-icons">
       <p class="m-0 mb-1 p-0">Data Inicial</p>
-      <input [(ngModel)]='dataI' name="dataI" type="date" 
+      <input [(ngModel)]='dataI' name="dataI" id="dataI" type="date" 
       (input)="formatarData1($event)" required>
       
     </div>
@@ -35,7 +35,7 @@
       <button class="btt bg-primary" ><i (click)='CotacaoPut()' class="fa-solid fa-3 fa-arrows-rotate"></i> Atualizar dados</button>
     </div>
   </div>
-
+  
     </div>
 
     <div class="container div1 mt-3">
