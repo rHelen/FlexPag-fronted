@@ -1,7 +1,7 @@
 import { Component, VERSION } from '@angular/core';
 import {DatePipe} from '@angular/common';
-import {HttpClientModule, HttpHeaders} from '@angular/common/http'
 import { CotacaoService } from './cotacao.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'my-app',
@@ -16,18 +16,22 @@ export class AppComponent  {
   formattedDate1:string
   formattedDate2:string
   moeda:string
-  // token:string
-
+  results:Observable<any>
+  cotacaoCompra:number
+  cotacaoVenda:number
+  dataHoraCotacao:Date
 
   constructor(private cotacaoService: CotacaoService){}
 
-  // token = {
-  //   headers: new HttpHeaders().set('Authorization', this.token)
-  // }
-
   CotacaoMoeda(): void{
-    this.cotacaoService.CotacaoM(this.moeda,this.formattedDate1,this.formattedDate2).subscribe(resp =>{
-      console.log(resp);
+    this.cotacaoService.CotacaoM(this.moeda,this.formattedDate1,this.formattedDate2, this.cotacaoCompra,this.cotacaoVenda,this.dataHoraCotacao).subscribe(resp =>{
+      this.results=resp;
+    })
+  }
+
+  CotacaoPut(): void{
+    this.cotacaoService.CotacaoMput(this.moeda,this.formattedDate1,this.formattedDate2).subscribe(resp =>{
+      this.results=resp;
     })
   }
 

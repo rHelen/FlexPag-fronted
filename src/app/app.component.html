@@ -29,10 +29,10 @@
     </div>
 
     <div class="col-md-2 mt-4">
-      <button class="btt" id="btt1" (click)='CotacaoMoeda()'><i class="fa fa-check mr-1" aria-hidden="true" ></i> <span style="font-size: 15px;">Consultar dados</span></button>
+      <button class="btt bg-success" (click)='CotacaoMoeda()'><i class="fa fa-check mr-1" aria-hidden="true" ></i> <span style="font-size: 15px;">Consultar dados</span></button>
     </div>
     <div class="col-md-2 mt-4">
-      <button class="btt" id="btt2"><i class="fa-solid fa-3 fa-arrows-rotate"></i> Atualizar dados</button>
+      <button class="btt bg-primary" ><i (click)='CotacaoPut()' class="fa-solid fa-3 fa-arrows-rotate"></i> Atualizar dados</button>
     </div>
   </div>
 
@@ -42,7 +42,7 @@
       <div class="col-md-12 mx-1">
 
 
-      <div class="row d-flex justify-content-between align-items-center">
+      <div class="row d-flex justify-content-between align-items-center mb-3">
 
         <div class="col-md-4 divcot row d-flex align-items-center">
           <p class="mt-2">Cotação de compra </p><i class="fa fa-angle-down ml-auto" aria-hidden="true"></i>
@@ -61,15 +61,15 @@
 
       </div>
       
-        <div class="row d-flex justify-content-around" *ngFor="">
+        <div class="row d-flex justify-content-around" *ngFor="let result of this.results | async">
           <div class="col-md-4">
-            
+            {{result.cotacaoCompra}}
           </div>
           <div class="col-md-4">
-            
+            {{result.cotacaoVenda}}
           </div>
           <div class="col-md-4">
-            
+            {{result.dataHoraCotacao}}
           </div>
         </div>
    
