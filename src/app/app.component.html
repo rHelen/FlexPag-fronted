@@ -3,7 +3,7 @@
   <div class="d-flex justify-content-center py-2 my-1">
     <h1>Histórico de cotações</h1>
   </div>
-
+ 
   <div class="div1">
     <div class="row col-12 d-flex justify-content-around mt-2 mb-1 d-flex align-items-center">
     <div class="col-md-2">
@@ -23,19 +23,19 @@
     </div>
     <div class="col-md-2 input-icons">
       <p class="m-0 mb-1 p-0">Data Final</p>
-      <input [(ngModel)]='dataF' name="dataF" type="date" min="dataI"
+      <input [(ngModel)]='dataF' name="dataF" type="date" min="dataI" 
       (input)="formatarData2($event)" required>
 
     </div>
 
     <div class="col-md-2 mt-4">
-      <button class="btt bg-success" (click)='CotacaoMoeda()'><i class="fa fa-check mr-1" aria-hidden="true" ></i> <span style="font-size: 15px;">Consultar dados</span></button>
+      <button class="btt bg-success" id="btnConverter" (click)='CotacaoMoeda()'><i class="fa fa-check mr-1" aria-hidden="true" ></i> <span style="font-size: 15px;">Consultar dados</span></button>
     </div>
     <div class="col-md-2 mt-4">
       <button class="btt bg-primary" ><i (click)='CotacaoPut()' class="fa-solid fa-3 fa-arrows-rotate"></i> Atualizar dados</button>
     </div>
   </div>
-  
+
     </div>
 
     <div class="container div1 mt-3">

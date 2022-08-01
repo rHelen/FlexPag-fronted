@@ -11,6 +11,8 @@ import { Observable } from 'rxjs';
 export class AppComponent  {
   title='HistoricoCotacao';
 
+  btnConverter = document.querySelector('#btnConverter')
+
   dataI:Date
   dataF:Date
   formattedDate1:string
@@ -24,9 +26,16 @@ export class AppComponent  {
   constructor(private cotacaoService: CotacaoService){}
 
   CotacaoMoeda(): void{
-    this.cotacaoService.CotacaoM(this.moeda,this.formattedDate1,this.formattedDate2, this.cotacaoCompra,this.cotacaoVenda,this.dataHoraCotacao).subscribe(resp =>{
-      this.results=resp;
-    })
+    if (this.moeda==null || this.dataI==null || this.dataF==null ){
+      this.btnConverter.setAttribute('disabled', 'disabled')
+    }
+    if(this.dataF < this.dataI){
+      this.btnConverter.setAttribute('disabled', 'disabled')
+    } else {
+      this.cotacaoService.CotacaoM(this.moeda,this.formattedDate1,this.formattedDate2, this.cotacaoCompra,this.cotacaoVenda,this.dataHoraCotacao).subscribe(resp =>{
+        this.results=resp;
+      })
+    } 
   }
 
   CotacaoPut(): void{
@@ -44,5 +53,4 @@ export class AppComponent  {
     const datepipe: DatePipe = new DatePipe('en-US')
     this.formattedDate2 = datepipe.transform(this.dataF, 'MM-dd-YYYY')
    }
-
 }
